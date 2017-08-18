@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Quiz</title>
+    <meta name="description" content="The HTML5 Quiz Q3">
+    <meta name="author" content="mfuery">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="q3.css">
+    <script src="q3.js"></script>
+
+</head>
+
+
+<body>
+<pre>
+3) Using JavaScript/ES6/HTML/CSS, create a working image lightbox to display a Flickr public feed. Functional UI is fine.
+
+- Flickr feed https://api.flickr.com/services/feeds/photos_public.gne?tags=puppies&format=json.
+- Native JavaScript only. No jQuery, etc.
+- Page should show a grid of photo thumbnails. When a thumbnail is clicked, the photo should be displayed in a lightbox view.
+- Should run in one of the major browsers (please indicate which one).
+- Update the UI of a page without refreshing.
+</pre>
+
+<p>
+    <a id="refresh-btn" href="#">Refresh</a>
+</p>
+
+<p><span>Enter tag(s) here: </span><input id="tags" type="text" value="puppies" /></p>
+
+<p id="status-msg">Loading...</p>
+
+<div id="photo-area"></div>
+
+<div id="lightbox-modal" class="modal">
+    <span id="close" class="close cursor">&times;</span>
+    <div id="modal-content"></div>
+    <a id="prev">&#10094;</a>
+    <a id="next">&#10095;</a>
+</div>
+
+</body>
+</html>

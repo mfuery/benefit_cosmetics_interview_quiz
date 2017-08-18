@@ -42,14 +42,13 @@ function myApp() {
         lightboxModal.style.display = "none";
     });
     document.addEventListener("keydown", function(evt) {
-        if (evt.keyCode == 27) {
+        if (evt.keyCode == 27) {  // ESC
             lightboxModal.style.display = "none";
         }
     });
     tagsInput.addEventListener("keydown", function(evt) {
-        // console.log(this.value)
         apiUrl = "http://api.flickr.com/services/feeds/photos_public.gne?tags=" + encodeURI(this.value) + "&format=json";
-        if (evt.keyCode == 13) {
+        if (evt.keyCode == 13) {  // ENTER
             refreshFeed();
         }
     });
@@ -86,7 +85,6 @@ function myApp() {
      * @param json
      */
     function jsonFlickrFeed(json) {
-        console.log("jsonFlickrFeed");
         gallery.items = json.items;
 
         gallery.items.forEach(function (item, index) {
@@ -102,11 +100,7 @@ function myApp() {
                 click: function (evt) {
                     evt.stopPropagation();
                     gallery.slideIndex = this.id.substring(this.id.indexOf("_") + 1);
-                    lightbox.call(this);
-                },
-                mouseover: function() {
-                    // gallery.slideIndex = this.id.substring(this.id.indexOf("_") + 1);
-                    //console.log(gallery.slideIndex)
+                    lightbox();
                 }
             });
 
@@ -114,6 +108,7 @@ function myApp() {
                 className: "slide"
             });
             gallery.slides.push(slide);
+
             var numbertext = newEl("div", slide, {
                 className: "numbertext",
                 innerText: (index + 1) + " / " + gallery.items.length
@@ -151,9 +146,6 @@ function myApp() {
      * Ajax call to Flickr API
      */
     function refreshFeed() {
-        // var url = //"photos_public.json";
-        //     "http://api.flickr.com/services/feeds/photos_public.gne?tags=puppies&format=json";
-
         statusMsg.innerText = "Loading...";
 
         var xhr = new XMLHttpRequest();
@@ -161,7 +153,6 @@ function myApp() {
         xhr.responseType = 'text';
         xhr.onload = function () {
             var status = xhr.status;
-            console.log(xhr);
             if (status == 200) {
                 //callback(xhr.response);
                 eval(xhr.responseText);

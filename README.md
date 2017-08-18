@@ -61,6 +61,8 @@ _Using JavaScript/ES6/HTML/CSS, create a working image lightbox to display a Fli
 
 ### Comments
 
+Tested in Chrome 56.
+
 I added a little additional functionality: added a input where you can type one or more tags and pull down
 other photos via Flickr's API. I think Flickr hides the URLs of the high-res photos, so unfortunately I just had
 to stretch the thumbnails for the lightbox. ¯\_(ツ)_/¯

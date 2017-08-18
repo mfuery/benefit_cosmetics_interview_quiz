@@ -13,9 +13,7 @@ class Mock implements AdapterInterface
 
     public function connect(\Db\Config $config) {
         if (!$this->_dbh) {
-            $dsn = sprintf('mongodb://%s:%s@%s:%s/%s',
-                $config->user, $config->password, $config->host, $config->port, $config->schema);
-            $this->_dbh = new \MongoClient($dsn);
+            $this->_dbh = "MockDatabase";
         }
 
         return $this->_dbh;

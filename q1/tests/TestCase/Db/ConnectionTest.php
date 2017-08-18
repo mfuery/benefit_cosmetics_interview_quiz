@@ -1,15 +1,19 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-
 namespace Myapp\TestCase\Db;
+
+include(dirname(dirname(dirname(__DIR__))) . '/src/autoload.php');
+include(dirname(dirname(dirname(__DIR__))) . '/vendor/autoload.php');
+
+//use PHPUnit\Framework\TestCase;
 
 use Db\Adapter\Mongo;
 use Db\Adapter\Mysql;
 use Db\Adapter\Postgres;
 use Db\Config;
+use PHPUnit_Framework_TestCase;
 
-class ConnectionTest extends TestCase
+class ConnectionTest extends PHPUnit_Framework_TestCase
 {
     public function testMongoAdapter() {
         $expected = "blah blah...";
